@@ -11,6 +11,19 @@
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
+            @if(count($errors)>0)
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $err)
+                        {{$err}}<br>
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('note'))
+                <div class="alert alert-success">
+                    {{session('note')}}
+                </div>
+            @endif
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
@@ -35,7 +48,7 @@
                         <td>{{$ma->Version}}</td>
                         <td>{{$ma->Deloy_user}}</td>
                         <td>{{$ma->Status}}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/instance/delete"> Delete</a></td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/instance/delete/{{$ma->id}}"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/instance/edit/{{$ma->id}}">Edit</a></td>
                     </tr>
                     @endforeach

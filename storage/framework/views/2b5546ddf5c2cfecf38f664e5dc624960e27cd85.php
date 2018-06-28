@@ -39,6 +39,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            
             <li>
                 <a href="#"><i class="fa fa-desktop fa-fw"></i> Project<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -47,6 +48,18 @@
                     </li>
                     <li>
                         <a href="admin/project/add">Add Project</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-user fa-fw"></i> User<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/user/list">List User</a>
+                    </li>
+                    <li>
+                        <a href="admin/user/add">Add User</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

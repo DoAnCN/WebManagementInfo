@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Host;
+use DateTime;
 
 class HostController extends Controller
 {
@@ -12,44 +13,68 @@ class HostController extends Controller
         $host = Host::all();
         return view('admin.host.list',['host'=>$host]);
     }
+
     public function getAdd(){
         $host = Host::all();
         return view('admin.host.add',['host'=>$host]);
-        // return view('admin.instance.add');
     }
 
     public function postAdd(Request $request){
-        // $this->validate($request,
-        // [
-        //     'Name' => 'required|min:3|max:100'
-        // ],
-        // [
-        //     'Name.required' => 'You must fill the Name',
-        //     'Name.min' => 'The Instance name must be have at least 3 letter and max 100 letter',
-        //     'Name.max' => 'The Instance name must be have at least 3 letter and max 100 letter',
-        // ]);
+        $this->validate($request,
+        [
+            'HostName' => 'required|min:3|max:100'
+        ],
+        [
+            'HostName.required' => 'You must fill the Name',
+            'HostName.min' => 'The Instance name must be have at least 3 letter and max 100 letter',
+            'HostName.max' => 'The Instance name must be have at least 3 letter and max 100 letter',
+        ]);
 
         $host = new Host;
-        $host->Ten_Host=$request->Name;
-        $instance->Ten_database=$request->DatabaseName;
-        $instance->Domain=$request->DomainName;
-        $instance->Version=$request->Version;
-        $instance->Deloy_user=$request->DeloyUser;
-        $instance->Status=$request->Status;
-        $instance->created_at=new DateTime();
-        $instance->save();
-        // echo $request->Name;
-        // echo $request->DatabaseName;
-        // echo $request->DomainName;
-        // echo $request->DeloyUser;
-        // echo $request->Status;
-        // echo $request->Version;
+        $host->Ten_host=$request->HostName;
+        $host->IP=$request->IP;
+        $host->Port=$request->Port;
+        $host->HDH=$request->SO;
+        $host->Soluong_instance=$request->NumberInstance;
+        $host->save();
+        // echo $request->HostName;
+        // echo $request->IP;
+        // echo $request->Port;
+        // echo $request->SO;
+        // echo $request->NumberInstance;
 
-        return redirect('admin/instance/add')->with('note','Added successfully');
+        return redirect('admin/host/list')->with('note','Added successfully');
     }
 
-    public function getEdit(){
-        return view('admin.host.edit');
+    public function getEdit($id){
+        $host = Host::find($id);
+       return view('admin.host.edit',['host'=>$host]);
+    }
+
+    public function postEdit(Request $request,$id){
+        $this->validate($request,[
+            'HostName'=>'required | min:3'
+        ],[
+            'HostName.required' => 'Please type the User Name',
+            'HostName.min' => 'User Name must have at least 3 letter',
+            'HostName.max' => 'Project Name have max 32 letter'
+        ]);
+
+       $host = Host::find($id);
+       $host->Ten_host= $request->HostName;
+       $host->IP= $request->IP;
+       $host->Port= $request->Port;
+       $host->HDH= $request->SO;
+       $host->Soluong_instance= $request->NumberInstance;
+       $host->save();
+
+       return redirect('admin/host/edit/'.$id)->with('note','Edit Successfully');
+    }
+
+    public function getDelete($id){
+      $host = Host::find($id);
+      $host ->delete();
+      return redirect('admin/host/list/')->with('note','Delete Successfully');
     }
 
 }
