@@ -25,16 +25,6 @@ class UserController extends Controller
             'UserName'=>'required | min:3',
             'UserPassword'=>'required | min:3 |max:32',
             'UserPasswordAgain'=>'required | same:UserPassword'
-        ],[
-            'UserName.required' => 'Please type the User Name',
-            'UserName.min' => 'User Name must have at least 3 letter',
-
-            'UserPassword.required'=> 'Please type the password',
-            'UserPassword.min'=> 'Password must have at least 3 letter',
-            'UserPassword.max'=> 'Password must have at max 32 letter',
-
-            'UserPasswordAgain.required'=>'Please type password again',
-            'UserPasswordAgain.same'=>'Please type the password correct'
         ]);
        $user = new User;
        $user->username= $request->UserName;
