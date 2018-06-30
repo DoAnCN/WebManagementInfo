@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Instance extends Model
 {
     //
-    protected $table = "Instance";
+    protected $table = "instance";
     public $timestamps=false;
     public function project(){
         return $this->hasMany('App\Project','Project_id','id');
