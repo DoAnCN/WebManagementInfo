@@ -29,32 +29,32 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Instance Name</label>
-                        <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" value="{{$instance->Ten_instance}}" />
+                        <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" value="{{$instance->name}}" />
                     </div>
                     <div class="form-group">
                         <label>Database Name</label>
-                        <input class="form-control" name="DatabaseName" placeholder="Please Enter Database Name" value="{{$instance->Ten_database}}" />
+                        <input class="form-control" name="DatabaseName" placeholder="Please Enter Database Name" value="{{$instance->db_name}}" />
                     </div>
                     <div class="form-group">
                         <label>Domain</label>
-                        <input class="form-control" name="DomainName" placeholder="Please Enter Domain" value="{{$instance->Domain}}" />
+                        <input class="form-control" name="DomainName" placeholder="Please Enter Domain" value="{{$instance->domain}}" />
                     </div>
                     <div class="form-group">
                         <label>Deloy User</label>
-                        <input class="form-control" name="DeloyUser" placeholder="Please Enter Deloy User" value="{{$instance->Deloy_user}}" />
+                        <input class="form-control" name="DeloyUser" placeholder="Please Enter Deloy User" value="{{$instance->user_deployed}}" />
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input class="form-control" name="Status" placeholder="Please Enter Status" value="{{$instance->Status}}" />
+                        <input class="form-control" name="Status" placeholder="Please Enter Status" value="{{$instance->status}}" />
                     </div>
                     <div class="form-group">
                         <label>Version</label>
-                        <input class="form-control" name="Version" placeholder="Please Enter Version" value="{{$instance->Version}}" /> 
+                        <input class="form-control" name="Version" placeholder="Please Enter Version" value="{{$instance->version}}" /> 
                     </div>
                     <!-- <div>
                         <select class="form-control" name="NameProject">
                         @foreach($project as $pro)
-                            <option value="{{$pro->id}}">{{$pro->Ten_project}}</option>
+                            <option value="{{$pro->id}}">{{$pro->name}}</option>
                         @endforeach
                         </select>
                     </div>
@@ -62,7 +62,7 @@
                     <div>
                         <select class="form-control" name="NameHost">
                         @foreach($host as $ho)
-                            <option value="{{$ho->id}}">{{$ho->Ten_host}}</option>
+                            <option value="{{$ho->id}}">{{$ho->name}}</option>
                         @endforeach
                         </select>
                     </div> -->

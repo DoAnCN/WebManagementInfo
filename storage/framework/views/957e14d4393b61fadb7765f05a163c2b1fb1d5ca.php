@@ -37,8 +37,8 @@
                 <?php $__currentLoopData = $project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr class="odd gradeX" align="center">
                         <td><?php echo e($pro->id); ?></td>
-                        <td><?php echo e($pro->Ten_project); ?></td>
-                        <td><?php echo e($pro->Url_remote); ?></td>
+                        <td><?php echo e($pro->name); ?></td>
+                        <td><?php echo e($pro->url_remote); ?></td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/project/delete/<?php echo e($pro->id); ?>"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/project/edit/<?php echo e($pro->id); ?>">Edit</a></td>
                     </tr>

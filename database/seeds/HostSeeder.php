@@ -15,7 +15,7 @@ class HostSeeder extends Seeder
         // [
         //     [
         //         'id'=>1,
-        //         'Ten_host' => 'Host 1',
+        //         'name' => 'Host 1',
         //         'IP' => '192.168.1.1',
         //         'Port' => '80',
         //         'HDH' => 'Windows',
@@ -24,7 +24,7 @@ class HostSeeder extends Seeder
         //     ],
         //     [
         //         'id'=>2,
-        //         'Ten_host' => 'Host 2',
+        //         'name' => 'Host 2',
         //         'IP' => '192.168.1.2',
         //         'Port' => '8080',
         //         'HDH' => 'Linux',
@@ -33,7 +33,7 @@ class HostSeeder extends Seeder
         //     ],
         //     [
         //         'id'=>3,
-        //         'Ten_host' => 'Host 3',
+        //         'name' => 'Host 3',
         //         'IP' => '192.168.1.3',
         //         'Port' => '443',
         //         'HDH' => 'Mac',
@@ -42,7 +42,7 @@ class HostSeeder extends Seeder
         //     ],
         //     [
         //         'id'=>4,
-        //         'Ten_host' => 'Host 4',
+        //         'name' => 'Host 4',
         //         'IP' => '192.168.1.4',
         //         'Port' => '680',
         //         'HDH' => 'CCC',

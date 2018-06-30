@@ -30,19 +30,17 @@ class InstanceController extends Controller
             'DatabaseName'=>'required',
             'DomainName'=>'required',
             'Version'=>'required',
-            'DeloyUser'=>'required',
-            'Status'=>'required',
         ]);
 
         $instance = new Instance;
-        $instance->Ten_instance=$request->NameInstance;
-        $instance->Ten_database=$request->DatabaseName;
-        $instance->Domain=$request->DomainName;
-        $instance->Deloy_user=$request->DeloyUser;
-        $instance->Status=$request->Status;
-        $instance->Version=$request->Version;
-        $instance->Project_id="1";
-        $instance->Host_id="2";
+        $instance->name=$request->NameInstance;
+        $instance->db_name=$request->DatabaseName;
+        $instance->domain=$request->DomainName;
+        $instance->user_deployed=$request->DeloyUser;
+        $instance->status=$request->Status;
+        $instance->verion=$request->Version;
+        $instance->id_project="1";
+        $instance->id_host="2";
         $instance->created_at=time();
         $instance->save();
         // echo $request->Name;
@@ -66,21 +64,17 @@ class InstanceController extends Controller
     public function postEdit(Request $request,$id){
         $this->validate($request,[
             'NameInstance'=>'required | min:3'
-        ],[
-            'NameInstance.required' => 'Please type the User Name',
-            'NameInstance.min' => 'User Name must have at least 3 letter',
-            'NameInstance.max' => 'Project Name have max 32 letter'
         ]);
 
        $instance = Instance::find($id);
-       $instance->Ten_instance= $request->NameInstance;
-       $instance->Ten_database= $request->DatabaseName;
-       $instance->Domain= $request->DomainName;
-       $instance->Version= $request->Version;
-       $instance->Deloy_user= $request->DeloyUser;
-       $instance->Status= $request->Status;
-       $instance->Project_id=$request->NameProject;
-       $instance->Host_id=$request->NameHost;
+       $instance->name= $request->NameInstance;
+       $instance->db_name= $request->DatabaseName;
+       $instance->domain= $request->DomainName;
+       $instance->verion= $request->Version;
+       $instance->user_deployed= $request->DeloyUser;
+       $instance->status= $request->Status;
+       $instance->id_project=$request->NameProject;
+       $instance->id_host=$request->NameHost;
        $instance->save();
 
        return redirect('admin/instance/edit/'.$id)->with('note','Edit Successfully');

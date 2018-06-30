@@ -12,21 +12,21 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-            @if(count($errors)>0)
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $err)
-                        {{$err}}<br>
-                    @endforeach
-                </div>
-            @endif
+                @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $err)
+                            {{$err}}<br>
+                        @endforeach
+                    </div>
+                @endif
 
-            @if(session('note'))
-                <div class="alert alert-success">
-                    {{session('note')}}
-                </div>
-            @endif
+                @if(session('note'))
+                    <div class="alert alert-success">
+                        {{session('note')}}
+                    </div>
+                @endif
 
-                <form action="admin/instance/add" method="POST">
+                <form action="{{route('postAddInstance')}}" method="POST">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Instance Name</label>
@@ -36,7 +36,7 @@
                         <label>Project</label>
                         <select class="form-control">
                             @foreach($project as $item)
-                                <option value="{{$item->id}}">{{$item->Ten_project}}</option>
+                                <option value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>

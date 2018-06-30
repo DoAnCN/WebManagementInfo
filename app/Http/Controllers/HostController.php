@@ -28,11 +28,11 @@ class HostController extends Controller
         ]);
 
         $host = new Host;
-        $host->Ten_host=$request->HostName;
-        $host->IP=$request->IpHost;
-        $host->Port=$request->PortHost;
-        $host->HDH=$request->OSHost;
-        $host->Soluong_instance=$request->NumInst;
+        $host->name=$request->HostName;
+        $host->ip=$request->IpHost;
+        $host->port=$request->PortHost;
+        $host->os=$request->OSHost;
+        $host->num_inst=$request->NumInst;
         $host->save();
 
         return redirect('admin/host/list')->with('note','Added successfully');
@@ -53,11 +53,11 @@ class HostController extends Controller
         ]);
 
        $host = Host::find($id);
-       $host->Ten_host= $request->HostName;
-       $host->IP= $request->IP;
-       $host->Port= $request->Port;
-       $host->HDH= $request->SO;
-       $host->Soluong_instance= $request->NumberInstance;
+       $host->name= $request->HostName;
+       $host->ip= $request->IP;
+       $host->port= $request->Port;
+       $host->os= $request->OS;
+       $host->num_inst= $request->NumberInstance;
        $host->save();
 
        return redirect('admin/host/edit/'.$id)->with('note','Edit Successfully');

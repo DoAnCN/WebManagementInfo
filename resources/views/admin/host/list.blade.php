@@ -41,11 +41,11 @@
                     @foreach ($host as $ho)
                     <tr class="odd gradeX" align="center">
                         <td>{{$ho->id}}</td>
-                        <td>{{$ho->Ten_host}}</td>
-                        <td>{{$ho->IP}}</td>
-                        <td>{{$ho->Port}}</td>
-                        <td>{{$ho->HDH}}</td>
-                        <td>{{$ho->Soluong_instance}}</td>
+                        <td>{{$ho->name}}</td>
+                        <td>{{$ho->ip}}</td>
+                        <td>{{$ho->port}}</td>
+                        <td>{{$ho->os}}</td>
+                        <td>{{$ho->num_inst}}</td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/host/delete/{{$ho->id}}"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/host/edit/{{$ho->id}}">Edit</a></td>
                     </tr>

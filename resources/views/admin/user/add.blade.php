@@ -19,7 +19,7 @@
                         <input class="form-control" name="txtCateName" placeholder="Please Enter Project Name" />
                     </div>
                     <div class="form-group">
-                        <label>Url_remote</label>
+                        <label>url_remote</label>
                         <input class="form-control" name="txtOrder" placeholder="Please Enter Url Remote" />
                     </div>
                     <button type="submit" class="btn btn-default">Category Add</button>

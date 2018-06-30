@@ -22,6 +22,10 @@
                         <label>Url Remote</label>
                         <input class="form-control" name="URL" placeholder="Please Enter Url Remote" />
                     </div>
+                    <div class="form-group">
+                        <label>Version</label>
+                        <input class="form-control" name="Vers" placeholder="Please Enter Project Version"/>
+                    </div>
                     <button type="submit" class="btn btn-default">Category Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 <form>

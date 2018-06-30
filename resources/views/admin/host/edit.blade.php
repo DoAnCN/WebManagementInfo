@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <small>{{$host->Ten_host}}</small>
+                    <small>{{$host->name}}</small>
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
@@ -29,23 +29,23 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Host Name</label>
-                        <input class="form-control" name="HostName" placeholder="Please Enter Host Name" value="{{$host->Ten_host}}" />
+                        <input class="form-control" name="HostName" placeholder="Please Enter Host Name" value="{{$host->name}}" />
                     </div>
                     <div class="form-group">
                         <labe>IP</label>
-                        <input class="form-control" name="IP" placeholder="Please Enter IP" value="{{$host->IP}}"/>
+                        <input class="form-control" name="IP" placeholder="Please Enter IP" value="{{$host->ip}}"/>
                     </div>
                     <div class="form-group">
                         <label>Port</label>
-                        <input class="form-control" name="Port" placeholder="Please Enter Port" value="{{$host->Port}}"/>
+                        <input class="form-control" name="Port" placeholder="Please Enter Port" value="{{$host->port}}"/>
                     </div>
                     <div class="form-group">
                         <label>System Operating</label>
-                        <input class="form-control" name="SO" placeholder="Please Enter System Operating" value="{{$host->HDH}}" />
+                        <input class="form-control" name="SO" placeholder="Please Enter System Operating" value="{{$host->os}}" />
                     </div>
                     <div class="form-group">
                         <label>Number of Instance</label>
-                        <input class="form-control" name="NumberInstance" placeholder="Please Enter Number of Instance" value="{{$host->Soluong_instance}}" />
+                        <input class="form-control" name="NumberInstance" placeholder="Please Enter Number of Instance" value="{{$host->num_inst}}" />
                     </div>
                     <button type="submit" class="btn btn-default">Edit Host</button>
                     <button type="reset" class="btn btn-default">Reset</button>

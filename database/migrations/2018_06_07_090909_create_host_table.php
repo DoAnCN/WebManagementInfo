@@ -15,11 +15,11 @@ class CreateHostTable extends Migration
     {
         Schema::create('host', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Ten_host')->unique();
-            $table->string('IP');
-            $table->integer('Port');
-            $table->string('HDH');
-            $table->integer('Soluong_instance');
+            $table->string('name')->unique();
+            $table->string('ip');
+            $table->integer('port');
+            $table->string('os');
+            $table->integer('num_inst');
             $table->timestamps();
         });
     }

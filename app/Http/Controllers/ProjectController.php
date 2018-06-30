@@ -23,13 +23,15 @@ class ProjectController extends Controller
         $this->validate($request,
         [
             'NameProject' => 'required',
-            'URL' => 'required'
+            'URL' => 'required',
+            'Vers' => 'required'
         ]);
         
 
         $project = new Project;
-        $project->Ten_project=$request->NameProject;
-        $project->Url_remote=$request->URL;
+        $project->name=$request->NameProject;
+        $project->url_remote=$request->URL;
+        $project->version=$request->Vers;
         $project->created_at=new DateTime();
         $project->save();
         // echo $request->Name;
@@ -50,15 +52,12 @@ class ProjectController extends Controller
     public function postEdit(Request $request,$id){
         $this->validate($request,[
             'NameProject'=>'required | min:3'
-        ],[
-            'NameProject.required' => 'Please type the User Name',
-            'NameProject.min' => 'User Name must have at least 3 letter',
-            'NameProject.max' => 'Project Name have max 32 letter'
         ]);
 
        $project = Project::find($id);
-       $project->Ten_project= $request->NameProject;
-       $project->Url_remote= $request->URL;
+       $project->name= $request->NameProject;
+       $project->url_remote= $request->URL;
+       $project->version=$request->Vers;
        $project->save();
 
        return redirect('admin/project/edit/'.$id)->with('note','Edit Successfully');

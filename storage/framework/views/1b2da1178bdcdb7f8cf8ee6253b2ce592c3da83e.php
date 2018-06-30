@@ -40,7 +40,7 @@
                     <?php $__currentLoopData = $host; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ho): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr class="odd gradeX" align="center">
                         <td><?php echo e($ho->id); ?></td>
-                        <td><?php echo e($ho->Ten_host); ?></td>
+                        <td><?php echo e($ho->name); ?></td>
                         <td><?php echo e($ho->IP); ?></td>
                         <td><?php echo e($ho->Port); ?></td>
                         <td><?php echo e($ho->HDH); ?></td>

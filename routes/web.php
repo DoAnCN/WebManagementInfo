@@ -19,7 +19,7 @@ Route::get('thu',function(){
     $instance = Instance::find(1);
     foreach($instance->host as $host)
     {
-        echo $host->Ten_host."<br>";
+        echo $host->name."<br>";
     }
 });
 
@@ -33,7 +33,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
         Route::get('list',['as'=>'list','uses'=>'InstanceController@getList']);
         
         Route::get('add','InstanceController@getAdd');
-        Route::post('add','InstanceController@postAdd');
+        Route::post('add',['as'=>'postAddInstance', 'uses'=>'InstanceController@postAdd']);
 
         Route::get('edit/{id}','InstanceController@getEdit');
         Route::post('edit/{id}','InstanceController@postEdit');
@@ -86,11 +86,10 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 });
 
 
-// Route::get("new-user", function(){
-//     $user = new App\User;
-//     $user->name="dat";
-//     $user->email="admin@gmail.com";
-//     $user->password=Hash::make("123456");
-//     echo $user->save();
-
-// });
+//Route::get("new-user", function(){
+//    $user = new App\User;
+//    $user->name="dat";
+//    $user->email="admin@gmail.com";
+//    $user->password=Hash::make("123456");
+//    echo $user->save();
+//});

@@ -10,6 +10,6 @@ class Host extends Model
     protected $table = "host";
 
     public function instance(){
-        return $this->belongsTo('App\Instance','Host_id','id');
+        return $this->belongsTo('App\Instance','id_host','id');
     }
 }

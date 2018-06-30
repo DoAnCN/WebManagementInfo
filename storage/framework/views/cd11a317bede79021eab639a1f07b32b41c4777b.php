@@ -53,7 +53,7 @@
                     <!-- <div>
                         <select class="form-control" name="NameProject">
                         <?php $__currentLoopData = $project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($pro->id); ?>"><?php echo e($pro->Ten_project); ?></option>
+                            <option value="<?php echo e($pro->id); ?>"><?php echo e($pro->name); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
@@ -61,7 +61,7 @@
                     <div>
                         <select class="form-control" name="NameHost">
                         <?php $__currentLoopData = $host; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ho): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($ho->id); ?>"><?php echo e($ho->Ten_host); ?></option>
+                            <option value="<?php echo e($ho->id); ?>"><?php echo e($ho->name); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div> -->

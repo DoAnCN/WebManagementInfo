@@ -42,12 +42,12 @@
                     @foreach($instance as $ma)
                     <tr class="odd gradeX" align="center">
                         <td>{{$ma->id}}</td>
-                        <td>{{$ma->Ten_instance}}</td>
-                        <td>{{$ma->Ten_database}}</td>
-                        <td>{{$ma->Domain}}</td>
-                        <td>{{$ma->Version}}</td>
-                        <td>{{$ma->Deloy_user}}</td>
-                        <td>{{$ma->Status}}</td>
+                        <td>{{$ma->name}}</td>
+                        <td>{{$ma->db_name}}</td>
+                        <td>{{$ma->domain}}</td>
+                        <td>{{$ma->verion}}</td>
+                        <td>{{$ma->user_deployed}}</td>
+                        <td>{{$ma->status}}</td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/instance/delete/{{$ma->id}}"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/instance/edit/{{$ma->id}}">Edit</a></td>
                     </tr>

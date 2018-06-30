@@ -10,7 +10,7 @@ class Project extends Model
     protected $table = "project";
 
     public function instance(){
-        return $this->belongsTo('App\Instance','Project_id','id');
+        return $this->belongsTo('App\Instance','id_project','id');
     }
 }
 
