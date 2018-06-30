@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label>Port</label>
-                        <input class="form-control" name="Port" placeholder="Please Enter Port" value="{{$host->port}}"/>
+                        <input class="form-control" name="Port" placeholder="Please Enter Port" value="{{$host->port}}" type='number'/>
                     </div>
                     <div class="form-group">
                         <label>System Operating</label>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label>Number of Instance</label>
-                        <input class="form-control" name="NumberInstance" placeholder="Please Enter Number of Instance" value="{{$host->num_inst}}" />
+                        <input class="form-control" name="NumberInstance" placeholder="Please Enter Number of Instance" value="{{$host->num_inst}}" disabled="disabled"  type='numberu/>
                     </div>
                     <button type="submit" class="btn btn-default">Edit Host</button>
                     <button type="reset" class="btn btn-default">Reset</button>

@@ -45,7 +45,7 @@
                         <td>{{$ma->name}}</td>
                         <td>{{$ma->db_name}}</td>
                         <td>{{$ma->domain}}</td>
-                        <td>{{$ma->verion}}</td>
+                        <td>{{$ma->version}}</td>
                         <td>{{$ma->user_deployed}}</td>
                         <td>{{$ma->status}}</td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/instance/delete/{{$ma->id}}"> Delete</a></td>

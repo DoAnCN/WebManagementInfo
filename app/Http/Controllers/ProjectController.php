@@ -23,15 +23,13 @@ class ProjectController extends Controller
         $this->validate($request,
         [
             'NameProject' => 'required',
-            'URL' => 'required',
-            'Vers' => 'required'
+            'URL' => 'required'
         ]);
         
 
         $project = new Project;
         $project->name=$request->NameProject;
         $project->url_remote=$request->URL;
-        $project->version=$request->Vers;
         $project->created_at=new DateTime();
         $project->save();
         // echo $request->Name;
@@ -57,7 +55,6 @@ class ProjectController extends Controller
        $project = Project::find($id);
        $project->name= $request->NameProject;
        $project->url_remote= $request->URL;
-       $project->version=$request->Vers;
        $project->save();
 
        return redirect('admin/project/edit/'.$id)->with('note','Edit Successfully');

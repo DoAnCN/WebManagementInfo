@@ -19,8 +19,8 @@ class CreateInstanceTable extends Migration
             $table->string('db_name')->unique();
             $table->string('domain');
             $table->string('version');
-            $table->string('user_deployed');
-            $table->string('status');
+            $table->string('user_deployed')->nullable();
+            $table->string('status')->nullable();
             $table->integer('id_project')->unsigned();
             $table->foreign('id_project')->references('id')->on('project')->onDelete('cascade');
             $table->integer('id_host')->unsigned();

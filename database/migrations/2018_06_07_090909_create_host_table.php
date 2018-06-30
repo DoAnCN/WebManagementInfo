@@ -19,7 +19,7 @@ class CreateHostTable extends Migration
             $table->string('ip');
             $table->integer('port');
             $table->string('os');
-            $table->integer('num_inst');
+            $table->integer('num_inst')->nullable();
             $table->timestamps();
         });
     }

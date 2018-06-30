@@ -34,7 +34,7 @@
                     </div>
                      <div class="form-group">
                         <label>Project</label>
-                        <select class="form-control">
+                        <select class="form-control" name="Project">
                             @foreach($project as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach

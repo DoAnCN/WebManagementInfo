@@ -38,9 +38,9 @@ class InstanceController extends Controller
         $instance->domain=$request->DomainName;
         $instance->user_deployed=$request->DeloyUser;
         $instance->status=$request->Status;
-        $instance->verion=$request->Version;
-        $instance->id_project="1";
-        $instance->id_host="2";
+        $instance->version=$request->Version;
+        $instance->id_project=$request->Project;
+        $instance->id_host="1";
         $instance->created_at=time();
         $instance->save();
         // echo $request->Name;
@@ -70,7 +70,7 @@ class InstanceController extends Controller
        $instance->name= $request->NameInstance;
        $instance->db_name= $request->DatabaseName;
        $instance->domain= $request->DomainName;
-       $instance->verion= $request->Version;
+       $instance->version= $request->Version;
        $instance->user_deployed= $request->DeloyUser;
        $instance->status= $request->Status;
        $instance->id_project=$request->NameProject;

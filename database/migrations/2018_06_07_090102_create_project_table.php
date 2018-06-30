@@ -17,7 +17,6 @@ class CreateProjectTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('url_remote');
-            $table->string('version');
             $table->timestamps();
         });
     }
