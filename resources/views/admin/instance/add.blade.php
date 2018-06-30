@@ -30,7 +30,19 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Instance Name</label>
-                        <input class="form-control" name="Name" placeholder="Please Enter Instance Name" />
+                        <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" />
+                    </div>
+                     <div class="form-group">
+                        <label>Project</label>
+                        <select class="form-control">
+                            @foreach($project as $item)
+                                <option value="{{$item->id}}">{{$item->Ten_project}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Version</label>
+                        <input class="form-control" name="Version" placeholder="Please Enter Version" /> 
                     </div>
                     <div class="form-group">
                         <label>Database Name</label>
@@ -42,16 +54,14 @@
                     </div>
                     <div class="form-group">
                         <label>Deloy User</label>
-                        <input class="form-control" name="DeloyUser" placeholder="Please Enter Deloy User" />
+                        <input class="form-control" name="DeloyUser" placeholder="User Deployed" disabled="disabled" />
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input class="form-control" name="Status" placeholder="Please Enter Status" />
+                        <input class="form-control" name="Status" placeholder="Status" disabled="disabled"/>
                     </div>
-                    <div class="form-group">
-                        <label>Version</label>
-                        <input class="form-control" name="Version" placeholder="Please Enter Version" /> 
-                    </div>
+                    
+                   
                     <!-- <div class="form-group">
                         <label>Category Status</label>
                         <label class="radio-inline">

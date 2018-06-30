@@ -12,26 +12,27 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="" method="POST">
+                <form action="{{route('postAddHost')}}" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" >
                     <div class="form-group">
                         <label>Host Name</label>
-                        <input class="form-control" name="txtCateName" placeholder="Please Enter Host Name" />
+                        <input class="form-control" name="HostName" placeholder="Please Enter Host Name" />
                     </div>
                     <div class="form-group">
                         <labe>IP</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter IP" />
+                        <input class="form-control" name="IpHost" placeholder="Please Enter IP" />      
                     </div>
                     <div class="form-group">
                         <label>Port</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter Port" />
+                        <input class="form-control" name="PortHost" type="number" value="22" placeholder="Please Enter Port" />
                     </div>
                     <div class="form-group">
                         <label>System Operating</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter System Operating" />
+                        <input class="form-control" name="OSHost" placeholder="Please Enter System Operating" />
                     </div>
                     <div class="form-group">
                         <label>Number of Instance</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter Number of Instance" />
+                        <input class="form-control" name="NumInst" type="number" value="0" disabled="disabled" placeholder="Please Enter Number of Instance" />
                     </div>
                     <button type="submit" class="btn btn-default">Category Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>

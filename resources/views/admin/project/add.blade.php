@@ -12,7 +12,7 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="" method="POST">
+                <form action="{{route("postAddProj")}}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" > 
                     <div class="form-group">
                         <label>Project Name</label>

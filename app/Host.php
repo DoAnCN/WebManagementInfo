@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Host extends Model
 {
     //
-    protected $table = "Host";
+    protected $table = "host";
 
     public function instance(){
         return $this->belongsTo('App\Instance','Host_id','id');
