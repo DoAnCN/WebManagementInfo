@@ -17,7 +17,7 @@ class CreateHostTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('ip');
-            $table->integer('port');
+            $table->ipAddress('port');
             $table->string('os');
             $table->integer('num_inst')->nullable();
             $table->timestamps();

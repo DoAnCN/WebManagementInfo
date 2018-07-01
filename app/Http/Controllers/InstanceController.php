@@ -50,7 +50,7 @@ class InstanceController extends Controller
         // echo $request->Status;
         // echo $request->Version;
 
-        return redirect('admin/instance/add')->with('note','Added successfully');
+        return redirect('admin/instance/list')->with('note','Added successfully');
     }
 
     public function getEdit($id){

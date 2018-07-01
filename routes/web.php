@@ -71,7 +71,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
     Route::group(['prefix'=>'user'],function(){
         //admin/user/list
-        Route::get('list','UserController@getList');
+        Route::get('list',['as'=>'getListUser','uses'=> 'UserController@getList']);
 
         Route::get('add','UserController@getAdd');
         Route::post('add',['as'=>'postAddUser','uses'=> 'UserController@postAdd']);

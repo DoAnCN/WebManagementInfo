@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use DateTime;
+use Hash;
  
 class UserController extends Controller
 {
@@ -29,14 +30,10 @@ class UserController extends Controller
        $user = new User;
        $user->username= $request->UserName;
        $user->password= bcrypt($request->UserPassword);
-       $user->level= $request->UserLevel;
+       $user->role= $request->UserRole;
        $user->save();
 
        return redirect('admin/user/add')->with('note','Add Susscessful'); 
-        // echo $request->UserName;
-        // echo $request->UserPassword;
-        // echo $request->UserLevel;
-
     }
 
     public function getEdit($id){
@@ -53,27 +50,27 @@ class UserController extends Controller
         ]);
 
        $user = User::find($id);
-       $user->username= $request->UserName;
-       $user->level= $request->UserLevel;
-
-       if($request->changePassword == "on")
-       {
+       $user->name= $request->UserName;
+       $user->role= $request->UserRole;
+       $this->validate($request,[
+            'OldPassword'=>'required | min:3'
+          ],[
+            'OldPassword.request'=>'Please type the password correct'
+          ]);
+       if (Hash::check($request->OldPassword,$user->password)){
           $this->validate($request,[
-            'UserPassword'=>'required | min:3 |max:32',
-            'UserPasswordAgain'=>'required | same:UserPassword'
-        ],[
-            'UserPassword.required'=> 'Please type the password',
-            'UserPassword.min'=> 'Password must have at least 3 letter',
-            'UserPassword.max'=> 'Password must have at max 32 letter',
-
-            'UserPasswordAgain.required'=>'Please type password again',
-            'UserPasswordAgain.same'=>'Please type the password correct'
-        ]);
-       }
-       $user->password= bcrypt($request->UserPassword);
-       $user->save();
-
-       return redirect('admin/user/edit/'.$id)->with('note','Edit Successfully');
+            'NewPassword'=>'required | min:3 |max:32',
+            'RePassword'=>'required | same:NewPassword'
+          ],[
+            'RePassword.required'=>'Please type password again',
+            'RePassword.same'=>'Please retype the same password'
+          ]);
+          $user->password= bcrypt($request->NewPassword);
+          $user->save();
+          return redirect('admin/user/edit/'.$id)->with('note','Edit Successfully');
+        }else{
+          return redirect('admin/user/edit/'.$id)->with('note', 'Edit Failed \n Password Uncorrect');
+        }
     }
 
     public function getDelete($id){
@@ -111,6 +108,7 @@ class UserController extends Controller
       if(Auth::attempt($data)){
         return redirect()->route('list'); 
       }else{
+        dd('---------------');
          return redirect('admin/login')->with('note','Fail to login');
       }
     }
