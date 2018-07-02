@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Host;
+use App\Instance;
 use DateTime;
 
 class HostController extends Controller
@@ -32,7 +33,8 @@ class HostController extends Controller
         $host->ip=$request->IpHost;
         $host->port=$request->PortHost;
         $host->os=$request->OSHost;
-        $host->num_inst=$request->NumInst;
+        $num_inst = Instance::groupBy('id_host')->where('id_host',$host->id)->count();      
+        $host->num_inst=$num_inst;
         $host->save();
 
         return redirect('admin/host/list')->with('note','Added successfully');

@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group">
                         <label>Number of Instance</label>
-                        <input class="form-control" name="NumInst" type="number" value="0" disabled="disabled" placeholder="Please Enter Number of Instance" />
+                        <input class="form-control" name="NumInst" type="number" disabled="disabled" placeholder="Please Enter Number of Instance" />
                     </div>
                     <button type="submit" class="btn btn-default">Category Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>

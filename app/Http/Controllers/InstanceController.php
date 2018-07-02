@@ -45,15 +45,14 @@ class InstanceController extends Controller
         $instance->status=$request->Status;
         $instance->version=$request->Version;
         $instance->id_project=$request->Project;
-        $instance->id_host="1";
+        $instance->id_host=$request->Host;
         $instance->created_at=time();
+        $host = Host::find($instance->id_host);
+        if(count($host) == 1){
+          $host->num_inst = $host->num_inst + 1;
+          $host->save();
+        }
         $instance->save();
-        // echo $request->Name;
-        // echo $request->DatabaseName;
-        // echo $request->DomainName;
-        // echo $request->DeloyUser;
-        // echo $request->Status;
-        // echo $request->Version;
 
         return redirect('admin/instance/list')->with('note','Added successfully');
     }
