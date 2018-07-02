@@ -69,7 +69,7 @@ class UserController extends Controller
           $user->save();
           return redirect('admin/user/edit/'.$id)->with('note','Edit Successfully');
         }else{
-          return redirect('admin/user/edit/'.$id)->with('note', 'Edit Failed \n Password Uncorrect');
+          return redirect('admin/user/edit/'.$id)->with('note', 'Edit Failed - Password Uncorrect');
         }
     }
 
@@ -108,7 +108,6 @@ class UserController extends Controller
       if(Auth::attempt($data)){
         return redirect()->route('list'); 
       }else{
-        dd('---------------');
          return redirect('admin/login')->with('note','Fail to login');
       }
     }

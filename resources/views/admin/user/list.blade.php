@@ -31,7 +31,7 @@
                     <tr align="center">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Level</th>
+                        <th>Role</th>
                         <th>Delete</th>
                         <th>Edit</th>
                     </tr>
@@ -42,7 +42,7 @@
                         <td>{{$u->id}}</td>
                         <td>{{$u->name}}</td>
                         <td>
-                            @if($u->level == 1)
+                            @if($u->role == "1")
                                 {{"Admin"}}
                             @else
                                 {{"Member"}}

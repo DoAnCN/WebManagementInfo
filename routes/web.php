@@ -91,5 +91,6 @@ Route::get("new-user", function(){
    $user->name="dat";
    $user->email="admin@gmail.com";
    $user->password=Hash::make("123456");
+   $user->role='1';
    echo $user->save();
 });

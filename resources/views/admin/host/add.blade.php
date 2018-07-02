@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                         <labe>IP</label>
-                        <input class="form-control" name="IpHost" placeholder="Please Enter IP" />      
+                        <input class="form-control" name="IpHost" placeholder="Please Enter IP" /> 
                     </div>
                     <div class="form-group">
                         <label>Port</label>
