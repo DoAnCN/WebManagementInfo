@@ -28,7 +28,7 @@ class UserController extends Controller
             'UserPasswordAgain'=>'required | same:UserPassword'
         ]);
        $user = new User;
-       $user->username= $request->UserName;
+       $user->user_name= $request->UserName;
        $user->password= bcrypt($request->UserPassword);
        $user->role= $request->UserRole;
        $user->save();
@@ -50,7 +50,7 @@ class UserController extends Controller
         ]);
 
        $user = User::find($id);
-       $user->name= $request->UserName;
+       $user->user_name= $request->UserName;
        $user->role= $request->UserRole;
        $this->validate($request,[
             'OldPassword'=>'required | min:3'

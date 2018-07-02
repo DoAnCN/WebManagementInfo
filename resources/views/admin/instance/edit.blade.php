@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <small>{{$instance->name}}</small>
+                    <small>{{$instance->inst_name}}</small>
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
@@ -29,7 +29,7 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Instance Name</label>
-                        <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" value="{{$instance->name}}" />
+                        <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" value="{{$instance->inst_name}}" />
                     </div>
                     <div class="form-group">
                         <label>Database Name</label>

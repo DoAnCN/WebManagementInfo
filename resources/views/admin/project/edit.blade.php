@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <small>{{$project->name}}</small>
+                    <small>{{$project->proj_name}}</small>
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
@@ -29,7 +29,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" > 
                     <div class="form-group">
                         <label>Project Name</label>
-                        <input class="form-control" name="NameProject" placeholder="Please Enter Project Name" value="{{$project->name}}" />
+                        <input class="form-control" name="NameProject" placeholder="Please Enter Project Name" value="{{$project->proj_name}}" />
                     </div>
                     <div class="form-group">
                         <label>Url Remote</label>

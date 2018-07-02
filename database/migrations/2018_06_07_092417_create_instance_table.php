@@ -15,7 +15,7 @@ class CreateInstanceTable extends Migration
     {
         Schema::create('instance', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('inst_name')->unique();
             $table->string('db_name')->unique();
             $table->string('domain');
             $table->string('version');

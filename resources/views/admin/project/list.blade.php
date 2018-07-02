@@ -38,7 +38,7 @@
                 @foreach ($project as $pro)
                     <tr class="odd gradeX" align="center">
                         <td>{{$pro->id}}</td>
-                        <td>{{$pro->name}}</td>
+                        <td>{{$pro->proj_name}}</td>
                         <td>{{$pro->url_remote}}</td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/project/delete/{{$pro->id}}"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/project/edit/{{$pro->id}}">Edit</a></td>

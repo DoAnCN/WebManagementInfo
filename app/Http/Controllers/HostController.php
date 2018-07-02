@@ -28,7 +28,7 @@ class HostController extends Controller
         ]);
 
         $host = new Host;
-        $host->name=$request->HostName;
+        $host->host_name=$request->HostName;
         $host->ip=$request->IpHost;
         $host->port=$request->PortHost;
         $host->os=$request->OSHost;
@@ -53,7 +53,7 @@ class HostController extends Controller
         ]);
 
        $host = Host::find($id);
-       $host->name= $request->HostName;
+       $host->host_name= $request->HostName;
        $host->ip= $request->IP;
        $host->port= $request->Port;
        $host->os= $request->OS;

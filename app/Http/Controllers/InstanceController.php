@@ -13,7 +13,12 @@ class InstanceController extends Controller
 {
     //
     public function getList(){
-        $instance = Instance::orderBy('id','DESC')->get();
+        $instance = \DB::table('instance')
+                        ->join('project', 'instance.id_project', '=', 'project.id')
+                        ->join('host', 'instance.id_host', '=', 'host.id')
+                        ->select('instance.*', 'project.proj_name', 'host.host_name')
+                        ->orderBy('id','DESC')->get();
+           // $instance = Instance::orderBy('id','DESC')->get();
         return view('admin.instance.list',['instance'=>$instance]);
     }
 
@@ -33,7 +38,7 @@ class InstanceController extends Controller
         ]);
 
         $instance = new Instance;
-        $instance->name=$request->NameInstance;
+        $instance->inst_name=$request->NameInstance;
         $instance->db_name=$request->DatabaseName;
         $instance->domain=$request->DomainName;
         $instance->user_deployed=$request->DeloyUser;
@@ -67,7 +72,7 @@ class InstanceController extends Controller
         ]);
 
        $instance = Instance::find($id);
-       $instance->name= $request->NameInstance;
+       $instance->inst_name= $request->NameInstance;
        $instance->db_name= $request->DatabaseName;
        $instance->domain= $request->DomainName;
        $instance->version= $request->Version;
@@ -85,4 +90,9 @@ class InstanceController extends Controller
       $instance ->delete();
       return redirect('admin/instance/list/')->with('note','Delete Successfully');
     }
+
+    // public function getallheaders()($value='')
+    // {
+    //   # code...
+    // }
 }

@@ -41,7 +41,7 @@
                     @foreach ($host as $ho)
                     <tr class="odd gradeX" align="center">
                         <td>{{$ho->id}}</td>
-                        <td>{{$ho->name}}</td>
+                        <td>{{$ho->host_name}}</td>
                         <td>{{$ho->ip}}</td>
                         <td>{{$ho->port}}</td>
                         <td>{{$ho->os}}</td>

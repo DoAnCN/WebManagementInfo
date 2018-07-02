@@ -17,7 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('instances/{id}', function($id) {
-    $instance = App\Instance::find($id);
-    return $instance;
-});
+Route::get('instances/{name}', 'ApiController@getInstance');
+Route::post('instances/update', 'ApiController@updateInstance');

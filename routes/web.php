@@ -15,14 +15,6 @@ Route::get('/', function () {
     return redirect('admin/login');
 });
 
-Route::get('thu',function(){
-    $instance = Instance::find(1);
-    foreach($instance->host as $host)
-    {
-        echo $host->name."<br>";
-    }
-});
-
 Route::get('admin/login',['as'=>'getLogin','uses'=>'UserController@getLoginAdmin']);
 Route::post('admin/login',['as'=>'postLogin','uses'=>'UserController@postLoginAdmin']);
 Route::get('admin/logout','UserController@getLogoutAdmin');
@@ -39,6 +31,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
         Route::post('edit/{id}','InstanceController@postEdit');
 
         Route::get('delete/{id}','InstanceController@getDelete');
+
+        // Route::get('project','InstanceController@getProject');
     });
 
     Route::group(['prefix'=>'host'],function(){
@@ -88,7 +82,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 // Route::get("new-user", function(){
 //    $user = new App\User;
-//    $user->name="dat";
+//    $user->user_name="dat";
 //    $user->email="admin@gmail.com";
 //    $user->password=Hash::make("123456");
 //    $user->role='1';

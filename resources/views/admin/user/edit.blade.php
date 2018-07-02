@@ -29,7 +29,7 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>User Name</label>
-                        <input class="form-control" name="UserName" placeholder="Please Enter User Name" value="{{$user->name}}" />
+                        <input class="form-control" name="UserName" placeholder="Please Enter User Name" value="{{$user->user_name}}" />
                     </div>
                     <div class="form-group">
                         <label>Old Password</label>

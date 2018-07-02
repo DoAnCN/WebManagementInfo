@@ -27,11 +27,12 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
                         <th>Name</th>
+                        <th>Project</th>
+                        <th>Version</th>
                         <th>Database Name</th>
                         <th>Domain</th>
-                        <th>Version</th>
+                        <th>Host</th>
                         <th>Deloy User</th>
                         <th>Status</th>
                         <th>Delete</th>
@@ -39,17 +40,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($instance as $ma)
+                    @foreach($instance as $inst)
                     <tr class="odd gradeX" align="center">
-                        <td>{{$ma->id}}</td>
-                        <td>{{$ma->name}}</td>
-                        <td>{{$ma->db_name}}</td>
-                        <td>{{$ma->domain}}</td>
-                        <td>{{$ma->version}}</td>
-                        <td>{{$ma->user_deployed}}</td>
-                        <td>{{$ma->status}}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/instance/delete/{{$ma->id}}"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/instance/edit/{{$ma->id}}">Edit</a></td>
+                        <td>{{$inst->inst_name}}</td>
+                        <td>{{$inst->proj_name}}</td>
+                        <td>{{$inst->version}}</td>
+                        <td>{{$inst->db_name}}</td>
+                        <td>{{$inst->domain}}</td>
+                        <td>{{$inst->host_name}}</td>
+                        <td>{{$inst->user_deployed}}</td>
+                        <td>{{$inst->status}}</td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/instance/delete/{{$inst->id}}"> Delete</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/instance/edit/{{$inst->id}}">Edit</a></td>
                     </tr>
                     @endforeach
                 </tbody>

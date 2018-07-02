@@ -15,7 +15,7 @@ class CreateProjectTable extends Migration
     {
         Schema::create('project', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('proj_name')->unique();
             $table->text('url_remote');
             $table->timestamps();
         });

@@ -35,14 +35,24 @@
                      <div class="form-group">
                         <label>Project</label>
                         <select class="form-control" name="Project">
+                            <option value="" selected="selected"></option>
                             @foreach($project as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                <option value="{{$item->id}}">{{$item->proj_name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Version</label>
                         <input class="form-control" name="Version" placeholder="Please Enter Version" /> 
+                    </div>
+                    <div class="form-group">
+                        <label>Host</label>
+                        <select class="form-control" name="Host">
+                            <option value="" selected="selected"></option>
+                            @foreach($host as $item)
+                                <option value="{{$item->id}}">{{$item->host_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Database Name</label>
@@ -83,3 +93,9 @@
 <!-- /#page-wrapper -->
 
 @endsection 
+{{-- 
+<script type="text/javascript">
+    var content = new XMLHttpRequest();
+    var method = "GET";
+    var url = 
+</script> --}}

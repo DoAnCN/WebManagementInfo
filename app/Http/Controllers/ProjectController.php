@@ -28,7 +28,7 @@ class ProjectController extends Controller
         
 
         $project = new Project;
-        $project->name=$request->NameProject;
+        $project->proj_name=$request->NameProject;
         $project->url_remote=$request->URL;
         $project->created_at=new DateTime();
         $project->save();
@@ -53,7 +53,7 @@ class ProjectController extends Controller
         ]);
 
        $project = Project::find($id);
-       $project->name= $request->NameProject;
+       $project->proj_name= $request->NameProject;
        $project->url_remote= $request->URL;
        $project->save();
 

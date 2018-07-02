@@ -40,7 +40,7 @@
                     @foreach($user as $u)
                     <tr class="odd gradeX" align="center">
                         <td>{{$u->id}}</td>
-                        <td>{{$u->name}}</td>
+                        <td>{{$u->_user_name}}</td>
                         <td>
                             @if($u->role == "1")
                                 {{"Admin"}}
