@@ -16,15 +16,15 @@ class CreateInstanceTable extends Migration
         Schema::create('instance', function (Blueprint $table) {
             $table->increments('id');
             $table->string('inst_name')->unique();
-            $table->string('db_name')->unique();
+            $table->string('db_name');
             $table->string('domain');
             $table->string('version');
             $table->string('user_deployed')->nullable();
             $table->string('status')->nullable();
             $table->integer('id_project')->unsigned();
-            $table->foreign('id_project')->references('id')->on('project')->onDelete('cascade');
+            $table->foreign('id_project')->references('id')->on('project');
             $table->integer('id_host')->unsigned();
-            $table->foreign('id_host')->references('id')->on('host')->onDelete('cascade');
+            $table->foreign('id_host')->references('id')->on('host');
             $table->timestamps();
         });
     }

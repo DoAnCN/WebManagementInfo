@@ -32,7 +32,7 @@
                         <label>Instance Name</label>
                         <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label>Project</label>
                         <select class="form-control" name="Project">
                             <option value="" selected="selected"></option>

@@ -27,6 +27,7 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
+                        <th>No.</th>
                         <th>Name</th>
                         <th>Project</th>
                         <th>Version</th>
@@ -42,6 +43,7 @@
                 <tbody>
                     @foreach($instance as $inst)
                     <tr class="odd gradeX" align="center">
+                        <th>{{$inst->id}}</th>
                         <td>{{$inst->inst_name}}</td>
                         <td>{{$inst->proj_name}}</td>
                         <td>{{$inst->version}}</td>

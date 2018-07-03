@@ -27,7 +27,7 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
+                        <th>No.</th>
                         <th>Project Name</th>
                         <th>Url Remote</th>
                         <th>Delete</th>

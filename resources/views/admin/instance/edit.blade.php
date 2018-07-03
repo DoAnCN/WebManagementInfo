@@ -29,11 +29,39 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Instance Name</label>
-                        <input class="form-control" name="NameInstance" placeholder="Please Enter Instance Name" value="{{$instance->inst_name}}" />
+                        <input class="form-control" name="InstanceName" placeholder="Please Enter Instance Name" value="{{$instance->inst_name}}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Project</label>
+                        <select class="form-control" name="ProjectName">
+                            @foreach($project as $item)
+                                @if($item->id <> $instance->id_project)
+                                <option value="{{$item->id}}">{{$item->proj_name}}</option>
+                                @else
+                                    <option value="{{$item->id}}" selected="selected">{{$item->proj_name}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Version</label>
+                        <input class="form-control" name="Version" placeholder="Please Enter Version" value="{{$instance->version}}" /> 
                     </div>
                     <div class="form-group">
                         <label>Database Name</label>
                         <input class="form-control" name="DatabaseName" placeholder="Please Enter Database Name" value="{{$instance->db_name}}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Host</label>
+                        <select class="form-control" name="HostName">
+                            @foreach($host as $item)
+                                @if($item->id <> $instance->id_host)
+                                    <option value="{{$item->id}}">{{$item->host_name}}</option>
+                                @else
+                                    <option value="{{$item->id}}" selected="selected">{{$item->host_name}}</option>
+                                @endif    
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Domain</label>
@@ -41,40 +69,12 @@
                     </div>
                     <div class="form-group">
                         <label>Deloy User</label>
-                        <input class="form-control" name="DeloyUser" placeholder="Please Enter Deloy User" value="{{$instance->user_deployed}}" />
+                        <input class="form-control" name="UserDeployed" placeholder="Please Enter Deloy User" value="{{$instance->user_deployed}}" disabled="disabled" />
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input class="form-control" name="Status" placeholder="Please Enter Status" value="{{$instance->status}}" />
+                        <input class="form-control" name="Status" placeholder="Please Enter Status" value="{{$instance->status}}" disabled="disabled" />
                     </div>
-                    <div class="form-group">
-                        <label>Version</label>
-                        <input class="form-control" name="Version" placeholder="Please Enter Version" value="{{$instance->version}}" /> 
-                    </div>
-                    <!-- <div>
-                        <select class="form-control" name="NameProject">
-                        @foreach($project as $pro)
-                            <option value="{{$pro->id}}">{{$pro->name}}</option>
-                        @endforeach
-                        </select>
-                    </div>
-
-                    <div>
-                        <select class="form-control" name="NameHost">
-                        @foreach($host as $ho)
-                            <option value="{{$ho->id}}">{{$ho->name}}</option>
-                        @endforeach
-                        </select>
-                    </div> -->
-                    <!-- <div class="form-group">
-                        <label>Category Status</label>
-                        <label class="radio-inline">
-                            <input name="rdoStatus" value="1" checked="" type="radio">Visible
-                        </label>
-                        <label class="radio-inline">
-                            <input name="rdoStatus" value="2" type="radio">Invisible
-                        </label>
-                    </div> -->
                     <button type="submit" class="btn btn-default">Insstance Edit</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 </form>
@@ -85,5 +85,4 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-
 @endsection 

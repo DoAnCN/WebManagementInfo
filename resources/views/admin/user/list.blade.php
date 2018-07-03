@@ -29,7 +29,7 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
+                        <th>No.</th>
                         <th>Name</th>
                         <th>Role</th>
                         <th>Delete</th>
@@ -40,7 +40,7 @@
                     @foreach($user as $u)
                     <tr class="odd gradeX" align="center">
                         <td>{{$u->id}}</td>
-                        <td>{{$u->_user_name}}</td>
+                        <td>{{$u->user_name}}</td>
                         <td>
                             @if($u->role == "1")
                                 {{"Admin"}}

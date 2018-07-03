@@ -27,7 +27,7 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
+                        <th>No.</th>
                         <th>Host Name</th>
                         <th>IP</th>
                         <th>Port</th>
