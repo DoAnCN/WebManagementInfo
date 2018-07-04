@@ -25,6 +25,7 @@ class CreateInstanceTable extends Migration
             $table->foreign('id_project')->references('id')->on('project');
             $table->integer('id_host')->unsigned();
             $table->foreign('id_host')->references('id')->on('host');
+            $table->dateTime('time_deployed')->nullable();
             $table->timestamps();
         });
     }

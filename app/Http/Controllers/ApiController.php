@@ -37,49 +37,49 @@ class ApiController extends Controller{
 		$instance_name = $name;
 	    $instance = DB::table('instance')
 	    				->join('project', 'instance.id_project', '=', 'project.id')
-						->join('host', 'instance.id_host', '=', 'host.id')
-	    				->select('instance.id', 'instance.inst_name' , 'instance.db_name',
-                         'instance.version', 'project.proj_name', 'project.url_remote',
-                          'host.host_name', 'host.ip', 'host.port' )
+	    				->select('instance.id', 'instance.inst_name' , 'instance.db_name', 'instance.id_host',
+                         'instance.version', 'project.proj_name', 'project.url_remote')
 	    				->where('instance.inst_name', $instance_name)->first();
-        if ($instance){
-            return $this->sendResponse($instance, 'Done');
-        }else {
+        if ( is_null($instance) ){
             return $this->sendError('Not Found', 'Instance '.$name.' not found');
+        }else {
+            return $this->sendResponse($instance, 'Done');
         }
 	}	
 
-    public function getHost($name){
+    public function getHost($id){
         $host = DB::table('host')
                     ->select('port', 'ip')
-                    ->where('host_name', $name)->first();
+                    ->where('id', $id)->first();
 
-        if ($host){
-            return $this->sendResponse($host, 'Done');
-        }else {
+        if (is_null($host)){
             return $this->sendError('Not Found', 'Host '.$name.' not found');
+        }else {
+            return $this->sendResponse($host, 'Done');
         }
     }
 
-	public function updateInstance(){
+	public function updateInstance(Request $request){
         $input = $request->all();
-        dd($input);
-        // $validator = Validator::make($input, [
-        //     'name' => 'required',
+
+        // $validator = $input->validate([
+        //     'id_inst' => 'required',
         //     'user_deployed' => 'required'
+            // 'status' => 'required'
         // ]);
 
-        // if($validator->fails()){
+        // if($validator->failed()){
         //     return $this->sendError('Validation Error.', $validator->errors());       
         // }
 
-        // $instance = Instance::find($id);
-        // if (is_null($instance)) {
-        //     return $this->sendError('Instance not found.');
-        // }
+        $instance = Instance::find($input['id']);
+        if (is_null($instance)) {
+            return $this->sendError('Instance '.$name.' not found.');
+        }
 
-        // $instance->inst_name = $input['name'];
-        // $instance->description = $input['user_deployed'];
-        // $post->save();
+        $instance->user_deployed = $input['user'];
+        $instance->status = $input['status'];
+        $instance->time_deployed = $input['time'];
+        $instance->save();
     }
 }
