@@ -92,15 +92,7 @@ class UserController extends Controller
         'email'=>'required|email',
         'password'=>'required | min:6 | max:32'
         ]);
-
-      // if(Auth::attemp(['username'=>$request->UserName, 'password'=>$request->UserPassword]))
-      // {
-      //   return redirect('admin/instance/list'); 
-      // }
-      // else
-      // {
-      //   return redirect('admin/login')->with('note','Fail to login');
-      // }
+      
       $data=[
         'email'=>$request->email,
         'password'=>$request->password,
@@ -117,4 +109,5 @@ class UserController extends Controller
       Auth::logout();
       return redirect('admin/login');
     }
+
 }

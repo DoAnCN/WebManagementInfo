@@ -17,5 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('instances/{name}', 'ApiController@getInstance');
-Route::post('instances/update', 'ApiController@updateInstance');
+Route::get('instances/search/{name}', 'ApiController@getInstance');
+Route::put('instances/update/{id}', function($id, Request $request) {
+    $article = Instance::findOrFail($id);
+    // dd($article;
+    return $article;
+});
+Route::get('hosts/search/{name}', 'ApiController@getHost');
