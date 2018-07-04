@@ -47,7 +47,7 @@ class InstanceController extends Controller
         $instance->id_project=$request->Project;
         $instance->id_host=$request->Host;
         $host = Host::find($instance->id_host);
-        if(count($host) == 1){
+        if(!is_null($host)){
           $host->num_inst = $host->num_inst + 1;
         }
         $instance->save();
@@ -91,7 +91,7 @@ class InstanceController extends Controller
     public function getDelete($id){
       $instance = Instance::find($id);
       $host = Host::find($instance->id_host);
-        if(count($host) == 1){
+        if(!is_null($host)){
           $host->num_inst = $host->num_inst - 1;
           $host->save();
         }
