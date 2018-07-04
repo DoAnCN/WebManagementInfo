@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label>System Operating</label>
-                        <input class="form-control" name="SO" placeholder="Please Enter System Operating" value="{{$host->os}}" />
+                        <input class="form-control" name="OSHost" placeholder="Please Enter System Operating" value="{{$host->os}}" />
                     </div>
                     <div class="form-group">
                         <label>Number of Instance</label>

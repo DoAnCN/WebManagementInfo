@@ -83,7 +83,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 Route::get("new-user", function(){
    $user = new App\User;
    $user->user_name="dat";
-   $user->email="admin@gmail.com";
+   $user->email="admin1@gmail.com";
    $user->password=Hash::make("123456");
    $user->role='1';
    echo $user->save();

@@ -46,7 +46,6 @@ class InstanceController extends Controller
         $instance->version=$request->Version;
         $instance->id_project=$request->Project;
         $instance->id_host=$request->Host;
-        $instance->created_at=time();
         $host = Host::find($instance->id_host);
         if(count($host) == 1){
           $host->num_inst = $host->num_inst + 1;
@@ -86,7 +85,7 @@ class InstanceController extends Controller
        $instance->id_host=$changeToHost;
        $instance->save();
 
-       return redirect('admin/instance/edit/'.$id)->with('note','Edit Successfully');
+       return redirect('admin/instance')->with('note','Edit Successfully');
     }
 
     public function getDelete($id){

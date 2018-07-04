@@ -65,9 +65,9 @@ class UserController extends Controller
             'RePassword.required'=>'Please type password again',
             'RePassword.same'=>'Please retype the same password'
           ]);
-          $user->password= bcrypt($request->NewPassword);
+          $user->password= Hash::make($request->NewPassword);
           $user->save();
-          return redirect('admin/user/edit/'.$id)->with('note','Edit Successfully');
+          return redirect('admin/logout')->with('note','Edit Successfully');
         }else{
           return redirect('admin/user/edit/'.$id)->with('note', 'Edit Failed - Password Uncorrect');
         }

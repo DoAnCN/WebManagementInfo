@@ -57,7 +57,7 @@ class ProjectController extends Controller
        $project->url_remote= $request->URL;
        $project->save();
 
-       return redirect('admin/project/edit/'.$id)->with('note','Edit Successfully');
+       return redirect('admin/project')->with('note','Edit Successfully');
     }
 
     public function getDelete($id){

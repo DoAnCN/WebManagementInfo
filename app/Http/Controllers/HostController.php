@@ -58,11 +58,10 @@ class HostController extends Controller
        $host->host_name= $request->HostName;
        $host->ip= $request->IP;
        $host->port= $request->Port;
-       $host->os= $request->OS;
-       $host->num_inst= $request->NumberInstance;
+       $host->os= $request->OSHost;
        $host->save();
 
-       return redirect('admin/host/edit/'.$id)->with('note','Edit Successfully');
+       return redirect('admin/host/list')->with('note','Edit Successfully');
     }
 
     public function getDelete($id){
