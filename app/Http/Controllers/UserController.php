@@ -23,12 +23,14 @@ class UserController extends Controller
 
     public function postAdd(Request $request){  
        $this->validate($request,[
-            'UserName'=>'required | min:3',
+            'Email'=>'required | email',
             'UserPassword'=>'required | min:3 |max:32',
             'UserPasswordAgain'=>'required | same:UserPassword'
         ]);
        $user = new User;
-       $user->user_name= $request->UserName;
+       $user->email= $request->Email;
+       if (!is_null($request->UserName)){
+              $user->user_name= $request->UserName;}
        $user->password= bcrypt($request->UserPassword);
        $user->role= $request->UserRole;
        $user->save();
@@ -43,30 +45,27 @@ class UserController extends Controller
 
     public function postEdit(Request $request,$id){
         $this->validate($request,[
-            'UserName'=>'required | min:3'
-        ],[
-            'UserName.required' => 'Please type the User Name',
-            'UserName.min' => 'User Name must have at least 3 letter'
-        ]);
-
-       $user = User::find($id);
-       $user->user_name= $request->UserName;
-       $user->role= $request->UserRole;
-       $this->validate($request,[
-            'OldPassword'=>'required | min:3'
-          ],[
-            'OldPassword.request'=>'Please type the password correct'
-          ]);
-       if (Hash::check($request->OldPassword,$user->password)){
-          $this->validate($request,[
+            'Email'=>'required | email',
+            'OldPassword'=>'required | min:3',
             'NewPassword'=>'required | min:3 |max:32',
             'RePassword'=>'required | same:NewPassword'
           ],[
+            'Email.required' => 'Please type the User Name',
+            'OldPassword.request'=>'Please type the password correct',
             'RePassword.required'=>'Please type password again',
             'RePassword.same'=>'Please retype the same password'
           ]);
+
+        $user = User::find($id);  
+        if (Hash::check($request->OldPassword,$user->password)){
+          $user->email= $request->Email;
+          if( !is_null($request->UserName)){
+                    $user->user_name= $request->UserName;}
+          $user->role= $request->UserRole;
           $user->password= Hash::make($request->NewPassword);
+          // dd($user->user_name, $user->role, $user->password, $request->NewPassword);
           $user->save();
+          //Should check user changed password had same with user login. If correct than it will log out
           return redirect('admin/logout')->with('note','Edit Successfully');
         }else{
           return redirect('admin/user/edit/'.$id)->with('note', 'Edit Failed - Password Uncorrect');

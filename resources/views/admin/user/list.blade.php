@@ -49,7 +49,10 @@
                             @endif
                         </td>
 
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/user/delete/{{$u->id}}"> Delete</a></td>
+                        <td class="center">
+                            <i class="fa fa-trash-o  fa-fw" ></i>
+                            <a href="admin/user/delete/{{$u->id}}" id="delete"> Delete</a>
+                        </td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/edit/{{$u->id}}">Edit</a></td>
                     </tr>
                     @endforeach
@@ -61,5 +64,11 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+<script>
+    $(document).getElementById("delete").addEventListener("click", Alert);
 
+    function Alert() {
+        $(document).getElementById("delete").alert("Stop");
+    }
+</script>
 @endsection

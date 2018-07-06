@@ -35,7 +35,7 @@
                         <label>Url Remote</label>
                         <input class="form-control" name="URL" placeholder="Please Enter Url Remote" value="{{$project->url_remote}}" />
                     </div>
-                    <button type="submit" class="btn btn-default">Project Edit</button>
+                    <button type="submit" class="btn btn-default">Save</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 <form>
             </div>

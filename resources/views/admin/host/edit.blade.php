@@ -47,7 +47,7 @@
                         <label>Number of Instance</label>
                         <input class="form-control" name="NumberInstance" placeholder="Please Enter Number of Instance" value="{{$host->num_inst}}" disabled="disabled"  type=number" />
                     </div>
-                    <button type="submit" class="btn btn-default">Edit Host</button>
+                    <button type="submit" class="btn btn-default">Save</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 <form>
             </div>

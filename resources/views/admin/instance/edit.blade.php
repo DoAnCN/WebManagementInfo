@@ -75,7 +75,7 @@
                         <label>Status</label>
                         <input class="form-control" name="Status" placeholder="Please Enter Status" value="{{$instance->status}}" disabled="disabled" />
                     </div>
-                    <button type="submit" class="btn btn-default">Insstance Edit</button>
+                    <button type="submit" class="btn btn-default">Save</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 </form>
             </div>

@@ -85,7 +85,7 @@ class InstanceController extends Controller
        $instance->id_host=$changeToHost;
        $instance->save();
 
-       return redirect('admin/instance')->with('note','Edit Successfully');
+       return redirect('admin/instance/list')->with('note','Edit Successfully');
     }
 
     public function getDelete($id){

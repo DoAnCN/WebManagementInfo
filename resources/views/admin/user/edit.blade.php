@@ -28,6 +28,10 @@
                 <form action="admin/user/edit/{{$user->id}}" method="POST">
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="Email" placeholder="Please Enter Email" value="{{$user->email}}" />
+                    </div>
+                    <div class="form-group">
                         <label>User Name</label>
                         <input class="form-control" name="UserName" placeholder="Please Enter User Name" value="{{$user->user_name}}" />
                     </div>
@@ -44,13 +48,13 @@
                         <input type="password" class="form-control password" name="RePassword" placeholder="Please Enter Password Again"/>
                     </div>
                     <div class="form-group">
-                        <label>Level</label>
+                        <label>Role</label>
                         <label class="radio-inline">
                             <input name="UserRole" value="0" 
                             @if($user->role == 0)
                             {{"check"}}
                             @endif
-                            type="radio">User
+                            type="radio">Member
                         </label>
                         <label class="radio-inline">
                             <input name="UserRole" value="1" 
@@ -60,7 +64,7 @@
                             type="radio">Admin
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-default">User Edit</button>
+                    <button type="submit" class="btn btn-default">Save</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 <form>
             </div>

@@ -28,6 +28,10 @@
                 <form action="{{route("postAddUser")}}" method="POST"> <!-- admin/user/add-->
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="Email" placeholder="Please Enter User Name" />
+                    </div>
+                    <div class="form-group">
                         <label>User Name</label>
                         <input class="form-control" name="UserName" placeholder="Please Enter User Name" />
                     </div>
