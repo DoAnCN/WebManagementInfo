@@ -22,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('instances/search/{name}', 'ApiController@getInstance');
+Route::get('hosts/search/{id}', 'ApiController@getHost');
+Route::get('hosts/search/{name}', 'ApiController@getHost');
+
 // Route::put('instances/update', 'ApiController@updateInstance');
 
 Route::put('instances/update', function(Request $request) {
@@ -47,5 +50,3 @@ Route::put('instances/update', function(Request $request) {
     $instance->time_deployed = $input['time'];
     $instance->save();
 });
-
-Route::get('hosts/search/{id}', 'ApiController@getHost');
